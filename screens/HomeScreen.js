@@ -1,3 +1,7 @@
+import { Entypo } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+
 import { useState } from "react";
 import { 
   StyleSheet , 
@@ -6,8 +10,10 @@ import {
   Image , 
   ScrollView,
   Dimensions, 
-  FlatList
+  FlatList,
+  TouchableOpacity
 } from "react-native"
+import ProfileWindow from '../components/ProfileWindow';
  import color from '../constants/color'
 
 const {width} = Dimensions.get('window');
@@ -33,6 +39,7 @@ export default function HomeScreen() {
 
   return (
     <ScrollView>
+
     <View >
       <ScrollView 
         pagingEnabled 
@@ -59,32 +66,118 @@ export default function HomeScreen() {
           })
         }
 
-      </ScrollView>
-      <View style={styles.indicator}>
+
+      </ScrollView> 
+
+
+
+        <View style={styles.indicator}> 
         {
            images.map((i,k)=>{
             return <Text key={k} style={k === active ? styles.pagingActiveText : styles.pagingText}>⬤</Text>
            })
         }
          
+
+      </View> 
+
+      <View style = {styles.teamSection}>
+        <Text style = {styles.teamText}>
+          The Team
+        </Text>
+
+
+
+        <View style = {{flexDirection : 'row'}}>
+          <ProfileWindow imgSrc = {require('../assets/Team/pavan.jpg')} linkedinUrl = "https://www.linkedin.com/in/pavan-shinde7494/" gmail = "pavanshinde7494@gmail.com" />
+          <ProfileWindow imgSrc = {require('../assets/Team/pavan.jpg')} linkedinUrl = "" gmail = "" />
+        </View>
+
+        <View style = {{flexDirection : 'row'}}>
+          <ProfileWindow imgSrc = {require('../assets/Team/pavan.jpg')} linkedinUrl = "" gmail = "" />
+          <ProfileWindow imgSrc = {require('../assets/Team/pavan.jpg')} linkedinUrl = "" gmail = "" />
+        </View>
+
+
+        
+
+
+        </View>
+        
+        
       </View>
-    </View>
-    </ScrollView>
+    
+    </ScrollView> 
+
+    
+
+    
+
+        /* Team Section */
+
+
+    
+
+    // 
+    
+    //  </ScrollView> 
+      
+      
   )
 }
 
 
 const styles = StyleSheet.create({
     imageText : {
-      textAlign : 'center' ,fontSize : 25 , color : color.primary , fontFamily : 'merriweather' 
+      textAlign : 'center' ,
+      fontSize : 25 , 
+      color : color.primary , 
+      fontFamily : 'merriweather' 
     },
+
     indicator : {
-      flexDirection : 'row' , position : 'absolute' , top : height - 40 , alignSelf : 'center' 
+      flexDirection : 'row' , 
+      position : 'absolute' , 
+      top : height - 40 , 
+      alignSelf : 'center' 
     },
     pagingText : {
-      color : '#888'  , margin : 3 
+      color : '#888'  , 
+      margin : 3 
     },
     pagingActiveText : {
-      color : '#fff'  , margin : 3 
+      color : '#fff'  , 
+      margin : 3 
+    },
+
+    teamSection : {
+      marginTop : '20%',
+      margin:  '10%'
+    },
+    teamText : {
+      fontSize : 30,
+      color : 'black',
+      fontFamily : 'merriweather'  ,
+      marginBottom : '5%' 
+    },
+
+    imageStyle : {
+      width : '70%' , 
+      height : null , 
+      aspectRatio : 0.6 ,
+      flex : 1 , 
+      resizeMode : 'cover', 
+      borderRadius : 20  
+    },
+    profileStyle : { 
+      width : '100%',
+      aspectRatio : 2.5 , 
+      backgroundColor : color.tertiary , 
+      opacity : 0.7  , 
+      position : 'absolute' , 
+      bottom : '0%',
+      borderBottomLeftRadius : 20 ,
+      borderBottomRightRadius : 20,
+  
     }
 })
