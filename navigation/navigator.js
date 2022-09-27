@@ -6,6 +6,7 @@ import { Text, View } from "react-native";
 import HomeScreen from "../screens/HomeScreen";
 import WeatherScreen from "../screens/WeatherScreen";
 import DamScreen from "../screens/DamScreen";
+import SoilMoistureSreen from '../screens/SoilMoistureScreen';
 
 // Navigation Options
 
@@ -20,65 +21,65 @@ const Drawer = createDrawerNavigator();
 import color from "../constants/color";
 
 
-const HomeScreenNavigator = ()=>{
+const HomeScreenNavigator = () => {
 
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle : {
-                    backgroundColor : 'red'
+                headerStyle: {
+                    backgroundColor: 'red'
                 }
             }}
         >
             <Stack.Screen
-                name = "HomeScreenNavigator"
+                name="HomeScreenNavigator"
                 component={HomeScreen}
             />
         </Stack.Navigator>
     )
 }
 
-const WeatherScreenNavigator = ()=>{
+const WeatherScreenNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle : {
-                    backgroundColor : 'purple'
+                headerStyle: {
+                    backgroundColor: 'purple'
                 }
             }}
         >
             <Stack.Screen
-                name = "WeatherScreenNavigator"
+                name="WeatherScreenNavigator"
                 component={WeatherScreen}
             />
         </Stack.Navigator>
-    ) 
+    )
 }
 
-const DrawerNavigator = ()=>{
+const DrawerNavigator = () => {
     return (
         <Drawer.Navigator
             initialRouteName="HomeScreenNavigator"
 
             screenOptions={{
-                drawerActiveTintColor : 'white',
-                drawerActiveBackgroundColor : color.secondary,
-                drawerInactiveTintColor : 'white',
-                drawerStyle : {
-                    backgroundColor : color.drawback
+                drawerActiveTintColor: 'white',
+                drawerActiveBackgroundColor: color.secondary,
+                drawerInactiveTintColor: 'white',
+                drawerStyle: {
+                    backgroundColor: color.drawback
                 },
-                headerStyle : {
-                    backgroundColor : color.primary,
+                headerStyle: {
+                    backgroundColor: color.primary,
                 },
-                headerTitleStyle : {
-                    fontFamily : 'newrocker'
+                headerTitleStyle: {
+                    fontFamily: 'newrocker'
                 },
-                headerTintColor : 'white'
-               
+                headerTintColor: 'white'
+
             }}
         >
-             <Drawer.Screen
-                name =  "Feeds"
+            <Drawer.Screen
+                name="Feeds"
                 component={HomeScreen}
             />
             <Drawer.Screen
@@ -86,8 +87,12 @@ const DrawerNavigator = ()=>{
                 component={WeatherScreen}
             />
             <Drawer.Screen
-                name="Dam"
+                name="DamScreen"
                 component={DamScreen}
+            />
+            <Drawer.Screen
+                name="SoilMoisture"
+                component={SoilMoistureSreen}
             />
         </Drawer.Navigator>
     )
