@@ -13,6 +13,11 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native"
+
+
+import { Input, Icon , Button } from '@rneui/themed';
+
+
 import ProfileWindow from '../components/ProfileWindow';
  import color from '../constants/color'
 
@@ -26,7 +31,8 @@ const images = [
 
 ]
   
-export default function HomeScreen() {
+export default function HomeScreen(props) {
+  // console.log(props.navigation);
   const [active , setActive] =  useState(0);
 
 
@@ -81,6 +87,8 @@ export default function HomeScreen() {
 
       </View> 
 
+      {/* Team Section */}
+
       <View style = {styles.teamSection}>
         <Text style = {styles.teamText}>
           The Team
@@ -98,30 +106,66 @@ export default function HomeScreen() {
           <ProfileWindow imgSrc = {require('../assets/Team/pavan.jpg')} linkedinUrl = "" gmail = "" />
         </View>
 
-
-        
-
-
         </View>
-        
-        
+
+        {/*  Footer */}
+        <View style={{width : '100%' , backgroundColor : color.tertiary}}>
+          <View style={{flexDirection : 'row' ,  }}>
+
+            <View style={{width : '50%', paddingTop : '10%' , paddingLeft : '10%' }}>
+              <Text style={{fontSize : 20 , color : 'white' , fontFamily  : 'newrocker' , marginBottom : 10} }>
+                Redirects
+              </Text>
+              <Text style={{fontSize : 15 , color : color.footerText , fontFamily  : 'newrocker' , marginVertical : 5} } onPress = {()=>{
+                props.navigation.navigate('Weather');
+              }}>
+                Weather
+              </Text>
+              <Text style={{fontSize : 15 , color : color.footerText , fontFamily  : 'newrocker'  , marginVertical : 5} } onPress = {()=>{
+                props.navigation.navigate('DamScreen');
+              }}>
+                Dam
+              </Text>
+              <Text style={{fontSize : 15 , color : color.footerText , fontFamily  : 'newrocker' , marginVertical : 5} } onPress = {()=>{
+                props.navigation.navigate('SoilMoisture');
+              }}>
+                Soil Moisture
+              </Text>
+            </View>
+
+
+              <View style={{width : '50%' , paddingRight : '10%'  , paddingTop :  '10%'} }>
+                <Text style={{fontSize : 20 , color : 'white' , fontFamily  : 'newrocker'} }>
+                  Contact Us
+                </Text>
+
+                <View>
+                  <Text style={{fontSize : 15 , color : color.footerText , fontFamily  : 'newrocker' , marginVertical : 5} } onPress = {()=>{
+                    props.navigation.navigate('SoilMoisture');
+                  }}>
+                    aashish.sutar@walchandsangli.ac.in
+                  </Text>
+                  <Text style={{fontSize : 15 , color : color.footerText , fontFamily  : 'newrocker' , marginVertical : 5} } onPress = {()=>{
+                    props.navigation.navigate('SoilMoisture');
+                  }}>
+                    +91 987654321
+                  </Text>      
+                </View>
+
+              </View>
+              
+
+
+          </View>
+          <View style={{marginVertical : '10%'}}>
+            <Text style={{textAlign : 'center' , color : '#C1BFBF' , opacity : 0.5}}>©Copyright 2022 Sangli Feed App</Text>
+          </View>
+              
+        </View>
+
       </View>
     
     </ScrollView> 
-
-    
-
-    
-
-        /* Team Section */
-
-
-    
-
-    // 
-    
-    //  </ScrollView> 
-      
       
   )
 }
@@ -151,7 +195,7 @@ const styles = StyleSheet.create({
     },
 
     teamSection : {
-      marginTop : '20%',
+      marginVertical : '20%',
       margin:  '10%'
     },
     teamText : {

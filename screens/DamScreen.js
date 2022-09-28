@@ -9,11 +9,9 @@ export default function DamScreen() {
     <View style={styles.container}>
       {/* <CardFlip style={styles.cardContainer} ref={cardFlip}> */}
         <TouchableOpacity style={styles.card} onPress={() => cardFlip.current.flip()}>
-          <Text>AVhgjghy</Text>
+          <Text>Dam Screen</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card} onPress={() => cardFlip.current.flip()}>
-          <Text>AVwjhsds</Text>
-        </TouchableOpacity>
+        
       {/* </CardFlip> */}
     </View>
   )
