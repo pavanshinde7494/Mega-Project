@@ -2,6 +2,7 @@ import {
     Text, View, TextInput, ImageBackground,
     StyleSheet, Dimensions
 } from "react-native"
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
@@ -9,19 +10,24 @@ const screenWidth = Dimensions.get('window').width;
 export default function SoilMoistureScreen() {
     return (
         <View>
+            
+
+            
             <ImageBackground
                 source={
                     require('../assets/SoilMoistureBackground.jpg')
                 }
                 resizeMode="stretch"
                 style={styles.img}>
-                <Text style={styles.text}>
-                    Scantime:{"\n"}
-                    2022-07-24 08:48:11 {"\n"}{"\n"}
-                    Soil Temperature:
-                    24.2499938964843 {"\n"}{"\n"}
-                    Soil Moisture: 29
-                </Text>
+                <TouchableOpacity>
+                    <Text style={styles.text}>
+                        Scantime:{"\n"}
+                        2022-07-24 08:48:11 {"\n"}{"\n"}
+                        Soil Temperature:
+                        24.2499938964843 {"\n"}{"\n"}
+                        Soil Moisture: 29
+                    </Text>
+                </TouchableOpacity>
             </ImageBackground>
         </View>
     )
